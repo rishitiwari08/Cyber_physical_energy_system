@@ -215,7 +215,7 @@ class InfluxDBQuery:
           |> range(start: {start_time_iso}, stop: {stop_time_iso})
           |> filter(fn: (r) => r._measurement == "{measurement}")
           |> yield(name: "results")
-        
+        """
         st.info(f"Querying InfluxDB: Measurement = '{measurement}', Range = '{start_time_iso}' to '{stop_time_iso}'")
         try:
             query_api = self.client.query_api()
